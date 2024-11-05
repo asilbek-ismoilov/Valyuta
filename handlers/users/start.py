@@ -1,7 +1,7 @@
 from aiogram.types import Message
 from loader import dp,db
 from aiogram.filters import CommandStart
-
+from states.v_stt import valyut_button
 
 @dp.message(CommandStart())
 async def start_command(message:Message):
@@ -9,6 +9,6 @@ async def start_command(message:Message):
     telegram_id = message.from_user.id
     try:
         db.add_user(full_name=full_name,telegram_id=telegram_id) #foydalanuvchi bazaga qo'shildi
-        await message.answer(text="Assalomu alaykum, botimizga hush kelibsiz")
+        await message.answer(text="Assalomu alaykum, botimizga hush kelibsiz", reply_markup=valyut_button)
     except:
-        await message.answer(text="Assalomu alaykum")
+        await message.answer(text="Assalomu alaykum", reply_markup=valyut_button)

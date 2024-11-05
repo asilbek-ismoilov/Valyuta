@@ -12,9 +12,13 @@ def get_val_malum(val):
     for currency in data:
         if currency['Ccy'] == val:
             if val == 'USD':
-                return f'Sana: {data[0]["Date"]} \n1 dollar = {data[0]["Rate"]} \nnomi : {data[0]["CcyNm_UZ"]}'
-                 
-        else: 
-            return "Bunday qiymat mavjud emas !"
-
+                return f'<blockquote>{currency["CcyNm_UZ"]}</blockquote>\n\n1 USD 🇺🇸 = {currency["Rate"]} \nO\'zgarish 📈: {currency["Diff"]} \nSana📆: {currency["Date"]}'
+            elif val == 'RUB':
+                return f'<blockquote>{currency["CcyNm_UZ"]}</blockquote>\n\n1 RUB 🇷🇺 = {currency["Rate"]} \nO\'zgarish 📈: {currency["Diff"]} \nSana📆: {currency["Date"]}'
+            elif val == 'EUR':
+                return f'<blockquote>{currency["CcyNm_UZ"]}</blockquote>\n\n1 EUR 🇪🇺 = {currency["Rate"]} \nO\'zgarish 📈: {currency["Diff"]} \nSana📆: {currency["Date"]}'
+            elif val == 'JPY':
+                return f'<blockquote>{currency["CcyNm_UZ"]}</blockquote>\n\n1 JPY 🇯🇵 = {currency["Rate"]} \nO\'zgarish 📈: {currency["Diff"]} \nSana📆: {currency["Date"]}'
+    else: 
+        return "Bunday 🏳️ qiymat mavjud emas !"
 
